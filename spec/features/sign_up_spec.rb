@@ -1,12 +1,14 @@
 require "rails_helper"
 
 feature "Sign up" do
-  let(:email) { Faker::Internet.email }
+  let(:user) { Fabricate.attributes_for(:user) }
+  let(:email) { user.email }
+  let(:password) { user.password }
 
   scenario "success" do
     visit sign_up_path
     fill_in "user_email", with: email
-    fill_in "user_password", with: Faker::Internet.password
+    fill_in "user_password", with: password
     click_button("Submit")
     expect(page).to have_content("Email sent to #{email}")
     open_email(email)
