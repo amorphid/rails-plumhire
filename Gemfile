@@ -13,6 +13,7 @@ gem "uglifier", "2.7.1"
 group :development, :test do
   gem "byebug", "4.0.5"
   gem "capybara", "2.4.4"
+  gem "fabrication", "2.12.2"
   gem "faker", "1.4.3"
   gem "rspec-rails", "3.2.1"
   gem "shoulda-matchers", "2.8.0"
