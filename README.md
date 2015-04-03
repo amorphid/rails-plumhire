@@ -9,6 +9,7 @@ Built & Tested With...
 - Ruby v2.2.1
 - Ruby On Rails v4.2.1
 - PostgreSQL v9.4.1
+- RSpec Rails v3.2.1
 
 License
 =======
