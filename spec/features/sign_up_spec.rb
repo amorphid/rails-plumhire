@@ -4,7 +4,7 @@ feature "Sign up" do
   let(:email) { Faker::Internet.email }
 
   scenario "success" do
-    visit sign_up_page
+    visit sign_up_path
     fill_in "user_email", with: email
     fill_in "user_password", with: Faker::Internet.password
     click_button("Submit")
