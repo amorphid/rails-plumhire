@@ -11,6 +11,7 @@ gem "uglifier", "2.7.1"
 
 group :development, :test do
   gem "byebug", "4.0.5"
+  gem "capybara", "2.4.4"
   gem "rspec-rails", "3.2.1"
   gem "web-console", "2.1.2"
   gem "spring", "1.3.3"
