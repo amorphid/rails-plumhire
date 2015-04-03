@@ -14,6 +14,7 @@ group :development, :test do
   gem "capybara", "2.4.4"
   gem "faker", "1.4.3"
   gem "rspec-rails", "3.2.1"
+  gem "shoulda-matchers", "2.8.0"
   gem "web-console", "2.1.2"
   gem "spring", "1.3.3"
 end
