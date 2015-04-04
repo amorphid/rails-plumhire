@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "bcrypt", "3.1.10"
 gem "coffee-rails", "4.1.0"
+gem "figaro", "1.1.0"
 gem "jbuilder", "2.2.12"
 gem "jquery-rails", "4.0.3"
 gem "pg", "0.18.1"

@@ -1,0 +1,7 @@
+EMAIL: "email@example.com"
+HOST: "localhost:3000"
+SMTP_ADDRESS: "smtp.emailserver.net"
+SMTP_AUTHENTICATION: "plain",
+SMTP_PORT: "587"
+SMTP_USERNAME: "username"
+SMTP_PASSWORD: "password"
