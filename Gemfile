@@ -12,6 +12,7 @@ gem "uglifier", "2.7.1"
 
 group :development, :test do
   gem "capybara", "2.4.4"
+  gem "capybara-email", "2.4.0"
   gem "fabrication", "2.12.2"
   gem "faker", "1.4.3"
   gem "pry-rails", "0.3.4"
