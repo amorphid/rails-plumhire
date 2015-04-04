@@ -3,9 +3,10 @@ require "rails_helper"
 describe UsersController do
   context "#create" do
     it "redirects  w/ valid input" do
-      user = Fabricate.attributes_for(:user)
-      post :create, user: user
-      expect(response).to redirect_to(email_sent_path)
+      user_attr = Fabricate.attributes_for(:user)
+      post :create, user: user_attr
+      user = User.find_by(email: user_attr[:email])
+      expect(response).to redirect_to(email_sent_path(user))
     end
   end
 

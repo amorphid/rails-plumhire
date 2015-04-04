@@ -2,8 +2,9 @@ require "rails_helper"
 
 describe "Custom routes" do
   it "GET /email_sent"do
-    expect(get: "/email_sent").to route_to(
+    expect(get: "/email_sent/:id").to route_to(
       controller: "static_pages",
+      id:         ":id",
       action:     "email_sent"
     )
   end
