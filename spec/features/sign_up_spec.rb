@@ -1,8 +1,8 @@
 require "rails_helper"
 
 feature "Sign up" do
-  let(:user) { Fabricate.attributes_for(:user) }
-  let(:email) { user.email }
+  let(:user) { Fabricate.build(:user) }
+  let!(:email) { user.email }
   let(:password) { user.password }
 
   scenario "success" do
