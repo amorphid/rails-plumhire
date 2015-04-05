@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Custom routes" do
+describe StaticPagesController do
   it "GET /email_sent"do
     expect(get: "/email_sent/:id").to route_to(
       controller: "static_pages",
@@ -20,13 +20,6 @@ describe "Custom routes" do
     expect(get: "/sign_in").to route_to(
       controller: "static_pages",
       action:     "sign_in"
-    )
-  end
-
-  it "POST /sign_ins" do
-    expect(post: "/sign_ins").to route_to(
-      controller: "sign_ins",
-      action:     "create"
     )
   end
 
