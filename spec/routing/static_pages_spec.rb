@@ -23,17 +23,17 @@ describe "Custom routes" do
     )
   end
 
+  it "POST /sign_ins" do
+    expect(post: "/sign_ins").to route_to(
+      controller: "sign_ins",
+      action:     "create"
+    )
+  end
+
   it "GET /sign_up"do
     expect(get: "/sign_up").to route_to(
       controller: "static_pages",
       action:     "sign_up"
-    )
-  end
-
-  it "POST /sign_up_post" do
-    expect(post: "/sign_in").to route_to(
-      controller: "static_pages",
-      action:     "sign_in_post"
     )
   end
 end

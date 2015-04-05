@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "/home", to: "static_pages#home"
   get "/sign_in", to: "static_pages#sign_in"
   get "/sign_up", to: "static_pages#sign_up"
-  post "/sign_in", to: "static_pages#sign_in_post"
 
+  resources :sign_ins, only: :create
   resources :users, only: :create
 end
