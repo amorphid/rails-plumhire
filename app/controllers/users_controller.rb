@@ -6,10 +6,6 @@ class UsersController < ApplicationController
     redirect_to email_sent_path(user)
   end
 
-  def new
-    @user = User.new
-  end
-
   private
 
   def user_params

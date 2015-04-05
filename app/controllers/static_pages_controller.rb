@@ -8,4 +8,8 @@ class StaticPagesController < ApplicationController
       flash[:success] = "Email #{params[:email]} confirmed"
     end
   end
+
+  def sign_up
+    @user = User.new
+  end
 end

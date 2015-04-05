@@ -20,4 +20,11 @@ describe StaticPagesController do
       expect(flash[:success]).not_to be_present
     end
   end
+
+  context "#sign_up" do
+    it "assigns @user" do
+      get :sign_up
+      expect(assigns[:user]).to be_instance_of(User)
+    end
+  end
 end

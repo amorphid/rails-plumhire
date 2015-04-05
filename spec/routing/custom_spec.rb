@@ -18,8 +18,8 @@ describe "Custom routes" do
 
   it "GET /sign_up"do
     expect(get: "/sign_up").to route_to(
-      controller: "users",
-      action:     "new"
+      controller: "static_pages",
+      action:     "sign_up"
     )
   end
 end
