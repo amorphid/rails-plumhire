@@ -28,7 +28,9 @@ describe StaticPagesController do
     end
 
     it "redirects if signed in" do
-      session[:user_id] = Fabricate(:user).id
+      session[:user_id]       = Fabricate(:user).id
+      session[:can]           = {}
+      session[:can][:sign_up] = true
       get :sign_up
       expect(response).to redirect_to(home_path)
     end
