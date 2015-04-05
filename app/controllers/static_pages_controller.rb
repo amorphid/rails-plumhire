@@ -16,6 +16,7 @@ class StaticPagesController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user.authenticate(params[:password])
+      flash[:success] = "You are now signed in"
       redirect_to home_path
     end
   end
