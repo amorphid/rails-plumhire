@@ -30,9 +30,15 @@ describe StaticPagesController do
     it "redirects if signed in" do
       session[:user_id]       = Fabricate(:user).id
       session[:can]           = {}
-      session[:can][:sign_up] = true
+      session[:can][:sign_up] =
       get :sign_up
       expect(response).to redirect_to(home_path)
+    end
+
+    it "skips redirects if not signed in" do
+      session[:user_id]       = nil
+      session[:can]           = {}
+      expect(response).not_to redirect_to(home_path)
     end
   end
 end
