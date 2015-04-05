@@ -9,6 +9,14 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def sign_in_post
+    user = User.find_by(email: params[:email])
+
+    if user.authenticate(params[:password])
+      redirect_to home_path
+    end
+  end
+
   def sign_up
     @user = User.new
   end

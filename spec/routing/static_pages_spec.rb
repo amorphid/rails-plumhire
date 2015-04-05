@@ -24,9 +24,9 @@ describe "Custom routes" do
   end
 
   it "POST /sign_up_post" do
-    expect(get: "/sign_up_postome").to route_to(
+    expect(post: "/sign_in").to route_to(
       controller: "static_pages",
-      action:     "sign_up_post"
+      action:     "sign_in_post"
     )
   end
 end
