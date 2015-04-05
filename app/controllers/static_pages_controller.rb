@@ -3,6 +3,9 @@ class StaticPagesController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def home
+  end
+
   def sign_in
     if params[:email_confirmed]
       flash[:success] = "Email #{params[:email]} confirmed"
