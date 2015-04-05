@@ -10,6 +10,12 @@ describe UsersController do
       expect(ActionMailer::Base.deliveries.count).to eq(pre_count + 1)
     end
 
+    it "creates a user w/ valid input" do
+      pre_count = User.count
+      post :create, user: user_attr
+      expect(User.count).to eq(pre_count + 1)
+    end
+
     it "redirects w/ valid input" do
       post :create, user: user_attr
       user = User.find_by(email: user_attr[:email])
