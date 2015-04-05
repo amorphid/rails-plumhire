@@ -4,7 +4,6 @@ class StaticPagesController < ApplicationController
   end
 
   def home
-    binding.pry
   end
 
   def sign_in
