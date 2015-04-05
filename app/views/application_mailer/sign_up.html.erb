@@ -1,6 +1,6 @@
 <p>Hi <%= @user.email %>!</p>
 
-<p>To confirm your email, <%= link_to "click here", sign_in_url(email: @user.email) %>.</p>
+<p>To confirm your email, <%= link_to "click here", sign_in_url(email: @user.email, email_confirmed: true) %>.</p>
 
 <p>
   Cheers,
