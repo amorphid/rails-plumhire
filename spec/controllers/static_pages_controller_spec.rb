@@ -21,6 +21,15 @@ describe StaticPagesController do
     end
   end
 
+  context "#sign_in_post" do
+    it "redirects if user authenticates" do
+      password = Faker::Internet.password
+      user = Fabricate(:user, password: password)
+      post :sign_in_post, email: user.email, password: password
+      expect(response).to redirect_to(home_path)
+    end
+  end
+
   context "#sign_up" do
     it "assigns @user" do
       get :sign_up
