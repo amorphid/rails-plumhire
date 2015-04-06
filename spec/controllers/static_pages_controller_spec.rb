@@ -7,6 +7,12 @@ describe StaticPagesController do
       get :email_sent, id: user.id
       expect(assigns[:user]).to eq(user)
     end
+
+    it "redirects if signed in" do
+      session[:user_id] = Fabricate(:user).id
+      get :email_sent
+      expect(response).to redirect_to(home_path)
+    end
   end
 
   context "#home" do
