@@ -2,15 +2,16 @@ require "rails_helper"
 
 describe StaticPagesController do
   context "#email_sent" do
+    let(:user) { Fabricate(:user) }
+
     it "assigns @user" do
-      user = Fabricate(:user)
       get :email_sent, id: user.id
       expect(assigns[:user]).to eq(user)
     end
 
     it "redirects if signed in" do
-      session[:user_id] = Fabricate(:user).id
-      get :email_sent
+      session[:user_id] = user.id
+      get :email_sent, id: user.id
       expect(response).to redirect_to(home_path)
     end
   end

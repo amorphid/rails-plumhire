@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
   def email_sent
+    reauthorize!
+
     @user = User.find(params[:id])
   end
 
