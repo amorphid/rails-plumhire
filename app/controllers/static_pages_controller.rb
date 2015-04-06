@@ -13,6 +13,7 @@ class StaticPagesController < ApplicationController
   end
 
   def sign_up
+    authenticate! false
     authorize! :sign_up
 
     @user = User.new
