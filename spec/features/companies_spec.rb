@@ -11,7 +11,7 @@ feature "Company" do
       fill_in :email, with: user.email
       fill_in :password, with: password
       click_button("Submit")
-      click_link("New company")
+      click_link("New Company")
       fill_in :company_name, with: company.name
       click_button("Submit")
       expect(page).to have_content(company.name)
