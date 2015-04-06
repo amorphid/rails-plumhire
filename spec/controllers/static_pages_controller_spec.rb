@@ -13,7 +13,7 @@ describe StaticPagesController do
     it "redirects if not signed in" do
       session[:user_id] = nil
       get :home
-      expect(response).to redirect_to(home_path)
+      expect(response).to redirect_to(sign_in_path)
     end
   end
 

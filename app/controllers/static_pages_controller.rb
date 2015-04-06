@@ -4,11 +4,11 @@ class StaticPagesController < ApplicationController
   end
 
   def home
+    authorize!
   end
 
   def sign_in
-    authenticate! false
-    authorize! :sign_in
+    reauthorize!
 
     if params[:email_confirmed]
       flash[:success] = "Email #{params[:email]} confirmed"
@@ -16,8 +16,7 @@ class StaticPagesController < ApplicationController
   end
 
   def sign_up
-    authenticate! false
-    authorize! :sign_up
+    reauthorize!
 
     @user = User.new
   end
