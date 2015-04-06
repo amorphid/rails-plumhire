@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  def authorize!
+  def authorize_user!
     redirect_to sign_in_path if current_user.nil?
   end
 
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def reauthorize!
+  def authorize_guest!
     redirect_to home_path unless current_user.nil?
   end
 end

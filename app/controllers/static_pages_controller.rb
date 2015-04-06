@@ -1,16 +1,16 @@
 class StaticPagesController < ApplicationController
   def email_sent
-    reauthorize!
+    authorize_guest!
 
     @user = User.find(params[:id])
   end
 
   def home
-    authorize!
+    authorize_user!
   end
 
   def sign_in
-    reauthorize!
+    authorize_guest!
 
     if params[:email_confirmed]
       flash[:success] = "Email #{params[:email]} confirmed"
@@ -18,7 +18,7 @@ class StaticPagesController < ApplicationController
   end
 
   def sign_up
-    reauthorize!
+    authorize_guest!
 
     @user = User.new
   end
