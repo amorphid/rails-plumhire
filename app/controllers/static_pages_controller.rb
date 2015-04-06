@@ -7,6 +7,9 @@ class StaticPagesController < ApplicationController
   end
 
   def sign_in
+    authenticate! false
+    authorize! :sign_in
+
     if params[:email_confirmed]
       flash[:success] = "Email #{params[:email]} confirmed"
     end

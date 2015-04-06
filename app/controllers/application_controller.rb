@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
 
     if @user.new_record?
       session[:user_id] = nil
+      session[:can][:sign_in] = true
       session[:can][:sign_up] = true
     end
 
