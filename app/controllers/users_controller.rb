@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     user.save
     ApplicationMailer.sign_up(user).deliver_now
-    redirect_to email_sent_path(user)
+    redirect_to email_sent_path(user, { email: user.email })
   end
 
   private

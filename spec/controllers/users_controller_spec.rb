@@ -19,7 +19,7 @@ describe UsersController do
     it "redirects w/ valid input" do
       post :create, user: user_attr
       user = User.find_by(email: user_attr[:email])
-      expect(response).to redirect_to(email_sent_path(user))
+      expect(response).to redirect_to(email_sent_path(user, { email: user.email }))
     end
   end
 end

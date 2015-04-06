@@ -5,8 +5,8 @@ describe StaticPagesController do
     let(:user) { Fabricate(:user) }
 
     it "assigns @user" do
-      get :email_sent, id: user.id
-      expect(assigns[:user]).to eq(user)
+      get :email_sent, id: user.id, email: user.email
+      expect(assigns[:user]).to be_instance_of(User)
     end
 
     it "redirects if signed in" do

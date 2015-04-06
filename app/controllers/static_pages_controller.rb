@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   def email_sent
     authorize_guest!
 
-    @user = User.find(params[:id])
+    @user = User.new(email: params[:email])
   end
 
   def home
