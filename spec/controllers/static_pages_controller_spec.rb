@@ -9,6 +9,14 @@ describe StaticPagesController do
     end
   end
 
+  context "#home" do
+    it "redirects if not signed in" do
+      session[:user_id] = nil
+      get :home
+      expect(response).to redirect_to(home_path)
+    end
+  end
+
   context "#sign_in" do
     it "sets flash success message on email confirmation" do
       get :sign_in, email: Faker::Internet.email, email_confirmed: true
