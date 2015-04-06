@@ -19,6 +19,18 @@ describe StaticPagesController do
       get :sign_in
       expect(flash[:success]).not_to be_present
     end
+
+    it "redirects if signed in" do
+      session[:user_id] = Fabricate(:user).id
+      get :sign_in
+      expect(response).to redirect_to(home_path)
+    end
+
+    it "skips redirects if not signed in" do
+      session[:user_id] = nil
+      get :sign_in
+      expect(response).not_to redirect_to(home_path)
+    end
   end
 
   context "#sign_up" do
