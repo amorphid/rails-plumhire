@@ -20,7 +20,7 @@ group :development, :test do
   gem "rspec-rails", "3.2.1"
   gem "shoulda-matchers", "2.8.0"
   gem "web-console", "2.1.2"
-  gem "spring", "1.3.3"
+  gem "spring", "1.3.4"
 end
 
 group :doc do
