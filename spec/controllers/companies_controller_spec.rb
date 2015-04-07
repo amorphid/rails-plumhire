@@ -34,7 +34,7 @@ describe CompaniesController do
     it "assigns @company" do
       session[:user_id] = Fabricate(:user).id
       company = Fabricate(:company)
-      get :new
+      get :show, id: company.id
       expect(assigns[:company]).to eq(company)
     end
 

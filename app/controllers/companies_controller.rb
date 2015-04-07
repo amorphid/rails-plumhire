@@ -3,7 +3,7 @@ class CompaniesController < ApplicationController
 
   def create
     company = Company.new(company_params)
-    company.save
+    company.save!
     redirect_to company_path(company)
   end
 
@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
+    @company = Company.find(params[:id])
   end
 
   private

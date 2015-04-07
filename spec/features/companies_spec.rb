@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Company" do
   context "creation" do
-    let(:company)  { Fabricate(:company, name: Faker::Company.name) }
+    let(:company)  { Fabricate.build(:company, name: Faker::Company.name) }
     let(:password) { Faker::Internet.password }
     let(:user)     { Fabricate(:user, password: password) }
 
