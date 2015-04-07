@@ -4,7 +4,7 @@ describe CompaniesController do
   it "GET /companies/:id" do
     expect(get: "/companies/:id").to route_to(
       controller: "companies",
-      id:         ":id"
+      id:         ":id",
       action:     "show"
     )
   end
