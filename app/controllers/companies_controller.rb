@@ -11,6 +11,9 @@ class CompaniesController < ApplicationController
     @company = Company.new
   end
 
+  def show
+  end
+
   private
 
   def company_params

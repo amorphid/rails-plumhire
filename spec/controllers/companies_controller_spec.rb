@@ -29,4 +29,19 @@ describe CompaniesController do
       expect(response).to redirect_to(sign_in_path)
     end
   end
+
+  context "#show" do
+    it "assigns @company" do
+      session[:user_id] = Fabricate(:user).id
+      company = Fabricate(:company)
+      get :new
+      expect(assigns[:company]).to eq(company)
+    end
+
+    it "redirects if not signed in" do
+      session[:user_id] = nil
+      post :create
+      expect(response).to redirect_to(sign_in_path)
+    end
+  end
 end
