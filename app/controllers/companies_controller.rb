@@ -3,6 +3,7 @@ class CompaniesController < ApplicationController
 
   def create
     company = Company.new(company_params)
+    company.user = current_user
     company.save!
     redirect_to company_path(company)
   end
