@@ -1,4 +1,7 @@
 class CompaniesController < ApplicationController
+  def create
+  end
+
   def new
     authorize_user!
 
