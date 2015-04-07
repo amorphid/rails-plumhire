@@ -17,10 +17,10 @@ feature "Job" do
     end
 
     scenario "succeeds w/ valid input" do
-      fill_in :job_title, with: job.name
+      fill_in :job_title, with: job.title
       fill_in :job_description, with: job.description
       click_button("Submit")
-      expect(page).to have_content(job.name)
+      expect(page).to have_content(job.title)
       expect(page).to have_content(job.description)
     end
   end
