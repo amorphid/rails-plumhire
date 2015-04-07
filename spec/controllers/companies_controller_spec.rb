@@ -11,7 +11,7 @@ describe CompaniesController do
     it "redirects if not signed in" do
       session[:user_id] = nil
       get :new
-      expect(response).to redirect_to(sign_in_page)
+      expect(response).to redirect_to(sign_in_path)
     end
   end
 end
