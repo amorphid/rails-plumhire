@@ -2,6 +2,13 @@ require "rails_helper"
 
 describe CompaniesController do
   context "#create" do
+    it "creates a company w/ valid input" do
+      session[:user_id] = Fabricate(:user).id
+      pre_count = Company.count
+      post :create, company: Fabricate.attributes_for(:company)
+      expect(Company.count).to eq(pre_count + 1)
+    end
+
     it "redirects if not signed in" do
       session[:user_id] = nil
       post :create

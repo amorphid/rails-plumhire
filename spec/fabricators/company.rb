@@ -1,3 +1,3 @@
 Fabricator(:company) do
-  name { Internet::Company.name }
+  name { Faker::Company.name }
 end
