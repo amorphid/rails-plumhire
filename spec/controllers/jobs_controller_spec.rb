@@ -8,7 +8,7 @@ describe JobsController do
     it "assigns @company" do
       session[:user_id] = user.id
       get :new, company_id: company.id
-      expect(assigns[:company]).to be_instance_of(Company)
+      expect(assigns[:job]).to be_instance_of(Job)
     end
 
     it "redirects if not signed in" do
