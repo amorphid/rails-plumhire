@@ -6,6 +6,10 @@ describe Company do
 
   end
 
+  context "#user" do
+    it { should belong_to(:user) }
+  end
+
   context "#user_id" do
     it { should validate_presence_of(:user_id) }
   end
