@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Job" do
+describe Job do
   context "#company" do
     it { should belong_to(:company) }
   end
