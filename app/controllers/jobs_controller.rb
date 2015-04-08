@@ -1,13 +1,18 @@
 class JobsController < ApplicationController
+    before_filter :authorize_user!
+
   def create
-    authorize_user!
-    job = Job.new(company_id: params[:company_id])
-    job.save
-    redirect_to company_job_path(job)
+    job = Job.create(job_params)
+    redirect_to company_job_path(job.company_id, job)
   end
 
   def new
-    authorize_user!
     @job = Job.new(company_id: params[:company_id])
+  end
+
+  private
+
+  def job_params
+    params.require(:job).permit(:description, :title, :company_id)
   end
 end
