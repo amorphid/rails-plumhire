@@ -12,10 +12,8 @@ describe JobsController do
       expect(Job.count).to eq(pre_count + 1)
     end
 
-    it "redirects if not signed in" do
-      session[:user_id] = nil
-      post :create, company_id: company.id, job: Fabricate.build(:job, company: company).attributes
-      expect(response).to redirect_to(sign_in_path)
+    it_behaves_like "require_sign_in" do
+      let(:action) { post :create, company_id: company.id, job: Fabricate.build(:job, company: company).attributes }
     end
   end
 
@@ -26,26 +24,22 @@ describe JobsController do
       expect(assigns[:job]).to be_instance_of(Job)
     end
 
-    it "redirects if not signed in" do
-      session[:user_id] = nil
-      get :new, company_id: company.id
-      expect(response).to redirect_to(sign_in_path)
+    it_behaves_like "require_sign_in" do
+      let(:action) { get :new, company_id: company.id }
     end
   end
 
   context "#show" do
+    let(:job) { Fabricate(:job, company: company) }
+
     it "assigns @show" do
       session[:user_id] = company.user.id
-      job = Fabricate(:job, company: company)
       get :show, company_id: company.id, id: job.id
       expect(assigns[:job]).to eq(job)
     end
 
-    it "redirects if not signed in" do
-      session[:user_id] = nil
-      job = Fabricate(:job, company: company)
-      get :show, company_id: company.id, id: job.id
-      expect(response).to redirect_to(sign_in_path)
+    it_behaves_like "require_sign_in" do
+      let(:action) { get :show, company_id: company.id, id: job.id }
     end
   end
 end
