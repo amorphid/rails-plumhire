@@ -10,6 +10,9 @@ class JobsController < ApplicationController
     @job = Job.new(company_id: params[:company_id])
   end
 
+  def show
+  end
+
   private
 
   def job_params

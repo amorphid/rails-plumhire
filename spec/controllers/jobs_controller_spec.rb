@@ -32,4 +32,19 @@ describe JobsController do
       expect(response).to redirect_to(sign_in_path)
     end
   end
+
+  context "#show" do
+    it "assigns @show" do
+      session[:user_id] = company.user.id
+      job = Fabricate(:job, company: company)
+      get :show, company_id: company.id, id: job.id
+      expect(assigns[:job]).to eq(job)
+    end
+
+    it "redirects if not signed in" do
+      session[:user_id] = nil
+      get :show, company_id: company.id, id: job.id
+      expect(response).to redirect_to(sign_in_path)
+    end
+  end
 end
