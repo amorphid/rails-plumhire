@@ -2,17 +2,11 @@ require "rails_helper"
 
 feature "Job" do
   context "creation" do
-    let(:company)  { Fabricate(:company, user: user) }
-    let(:job)      { Fabricate.build(:job) }
-    let(:password) { Faker::Internet.password }
-    let(:user)     { Fabricate(:user, password: password) }
+    let(:job)      { Fabricate.build(:job, company: Fabricate(:company)) }
 
     background do
-      visit sign_in_path
-      fill_in :email, with: user.email
-      fill_in :password, with: password
-      click_button("Submit")
-      visit company_path(company)
+      sign_in
+      visit company_path(job.company)
       click_link("New Job")
     end
 
