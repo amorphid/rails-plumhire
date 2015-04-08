@@ -43,6 +43,7 @@ describe JobsController do
 
     it "redirects if not signed in" do
       session[:user_id] = nil
+      job = Fabricate(:job, company: company)
       get :show, company_id: company.id, id: job.id
       expect(response).to redirect_to(sign_in_path)
     end
