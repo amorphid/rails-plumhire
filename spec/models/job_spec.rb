@@ -1,6 +1,10 @@
 require "rails_helper"
 
 describe Job do
+  context "#applications" do
+    it { should have_many(:applications) }
+  end
+
   context "#company" do
     it { should belong_to(:company) }
   end
