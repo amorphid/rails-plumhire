@@ -1,11 +1,11 @@
 require "rails_helper"
 
 describe SignInsController do
+  let(:user) { Fabricate(:user) }
+
   context "#create" do
     before do
-      password = Faker::Internet.password
-      user = Fabricate(:user, password: password)
-      post :create, email: user.email, password: password
+      post :create, email: user.email, password: user.password
     end
 
     it "sets flash success message if user authenticates" do
