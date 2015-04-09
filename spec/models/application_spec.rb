@@ -8,12 +8,4 @@ describe Application do
   context "#job" do
     it { should belong_to(:job) }
   end
-
-  context "#name" do
-    it { should validate_presence_of(:name) }
-  end
-
-  context "#phone" do
-    it { should validate_presence_of(:phone) }
-  end
 end
