@@ -1,11 +1,11 @@
 require "rails_helper"
 
 feature "Job" do
-  context "creation" do
-    let(:job)      { Fabricate.build(:job, company: Fabricate(:company)) }
+  let(:job) { Job.new(Fabricate.attributes_for(:job)) }
 
+  context "creation" do
     background do
-      sign_in
+      sign_in(job.company.user)
       visit company_path(job.company)
       click_link("New Job")
     end

@@ -2,10 +2,10 @@ require "rails_helper"
 
 feature "Company" do
   context "creation" do
-    let(:company)  { Fabricate.build(:company) }
+    let(:company)  { Company.new(Fabricate.attributes_for(:company)) }
 
     background do
-      sign_in
+      sign_in(company.user)
       click_link("New Company")
     end
 

@@ -10,5 +10,4 @@ Rails.application.routes.draw do
 
   resources :sign_ins, only: :create
   resources :sign_ups, only: :create
-  resources :users, only: :create
 end
