@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe CompaniesController do
-  it "GET /companies/:id" do
+  it do
     expect(get: "/companies/:id").to route_to(
       controller: "companies",
       id:         ":id",
@@ -9,14 +9,14 @@ describe CompaniesController do
     )
   end
 
-  it "GET /companies/new" do
+  it do
     expect(get: "/companies/new").to route_to(
       controller: "companies",
       action:     "new"
     )
   end
 
-  it "POST /companies" do
+  it do
     expect(post: "/companies").to route_to(
       controller: "companies",
       action:     "create"
