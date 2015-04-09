@@ -1,47 +1,43 @@
 require "rails_helper"
 
 describe CompaniesController do
+  let(:company) { Company.new(Fabricate.attributes_for(:company)) }
+
+  before { set_current_user(company.user) }
+
   context "#create" do
     it "creates a company w/ valid input" do
-      session[:user_id] = Fabricate(:user).id
       pre_count = Company.count
-      post :create, company: Fabricate.attributes_for(:company)
+      post :create, company: company.attributes
       expect(Company.count).to eq(pre_count + 1)
     end
 
-    it "redirects if not signed in" do
-      session[:user_id] = nil
-      post :create
-      expect(response).to redirect_to(sign_in_path)
+    it_behaves_like "require_sign_in" do
+      let(:action) { post :create }
     end
   end
 
   context "#new" do
     it "assigns @company" do
-      session[:user_id] = Fabricate(:user).id
       get :new
       expect(assigns[:company]).to be_instance_of(Company)
     end
 
-    it "redirects if not signed in" do
-      session[:user_id] = nil
-      get :new
-      expect(response).to redirect_to(sign_in_path)
+    it_behaves_like "require_sign_in" do
+      let(:action) { get :new }
     end
   end
 
   context "#show" do
+    before { company.save }
+
     it "assigns @company" do
-      session[:user_id] = Fabricate(:user).id
-      company = Fabricate(:company)
       get :show, id: company.id
       expect(assigns[:company]).to eq(company)
     end
 
-    it "redirects if not signed in" do
-      session[:user_id] = nil
-      post :create
-      expect(response).to redirect_to(sign_in_path)
+    it_behaves_like "require_sign_in" do
+      let(:action) { get :show, id: company.id }
     end
   end
 end
