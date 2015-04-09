@@ -2,7 +2,9 @@ require "rails_helper"
 
 describe UsersController do
   context "#create" do
-    let(:user) { Fabricate.build(:user) }
+    let(:user) do
+      Fabricate.build(:user)
+    end
 
     it "sends an email w/ valid input" do
       pre_count = ActionMailer::Base.deliveries.count
