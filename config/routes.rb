@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :companies, only: [:create, :new, :show] do
     resources :jobs, only: [:create, :new, :show]
   end
+
   resources :sign_ins, only: :create
+  resources :sign_ups, only: :create
   resources :users, only: :create
 end

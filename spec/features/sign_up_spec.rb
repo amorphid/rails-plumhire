@@ -6,8 +6,8 @@ feature "Sign up" do
 
   scenario "success" do
     visit sign_up_path
-    fill_in "user_email", with: user.email
-    fill_in "user_password", with: password
+    fill_in :email, with: user.email
+    fill_in :password, with: password
     click_button("Submit")
     expect(page).to have_content("Email sent to #{user.email}")
     open_email(user.email)

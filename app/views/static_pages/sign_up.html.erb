@@ -1,17 +1,17 @@
 <h1>Sign Up</h1>
 
-<%= form_for @user do |f| %>
+<%= form_tag sign_ups_path do %>
   <p>
-    <%= f.label :email %>
+    <%= label_tag :email %>
     <br />
-    <%= f.text_field :email %>
+    <%= text_field_tag :email %>
   </p>
   <p>
-    <%= f.label :password %>
+    <%= label_tag :password %>
     <br />
-    <%= f.text_field :password %>
+    <%= text_field_tag :password %>
   </p>
   <p>
-    <%= f.button "Submit" %>
+    <%= button_tag "Submit" %>
   </p>
 <% end %>
