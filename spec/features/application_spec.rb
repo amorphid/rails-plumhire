@@ -6,8 +6,8 @@ feature "Application" do
   context "creation" do
     background do
       sign_in(application.job.company.user)
-      visit job_application_path(application.job)
-      click("New Application")
+      visit company_job_path(application.job.company, application.job)
+      click_link("New Application")
     end
 
     scenario "succeeds w/ valid input" do

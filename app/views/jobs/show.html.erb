@@ -5,3 +5,10 @@
 
 <p>Description:</p>
 <p><%= @job.description %></p>
+
+<p>
+  <%= link_to(
+    "New Application",
+    new_job_application_path(@job)
+  )%>
+</p>
