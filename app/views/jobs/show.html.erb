@@ -12,3 +12,10 @@
     new_job_application_path(@job)
   )%>
 </p>
+
+<p>
+  <%= link_to(
+    "Edit Job",
+    edit_company_job_path(@job.company_id, @job)
+  )%>
+</p>
