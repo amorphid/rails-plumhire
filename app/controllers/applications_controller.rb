@@ -10,6 +10,10 @@ class ApplicationsController < ApplicationController
     @application = Application.new(job_id: params[:job_id])
   end
 
+  def show
+    @application = Application.find(params[:id])
+  end
+
   private
 
   def application_params

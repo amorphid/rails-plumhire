@@ -36,7 +36,7 @@ describe ApplicationsController do
     before { application.save }
 
     it "assigns @application" do
-      get :show, job_id: application.job_id
+      get :show, job_id: application.job_id, id: application.id
       expect(assigns[:application]).to be_instance_of(Application)
     end
 
