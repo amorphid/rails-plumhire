@@ -17,8 +17,21 @@ describe JobsController do
     end
   end
 
-  context "#new" do
+  context "#edit" do
+    before { job.save }
+
     it "assigns @company" do
+      get :edit, company_id: job.company_id, id: job.id
+      expect(assigns[:job]).to eq(job)
+    end
+
+    it_behaves_like "require_sign_in" do
+      let(:action) { get :edit, company_id: job.company_id, id: job.id }
+    end
+  end
+
+  context "#new" do
+    it "assigns @job" do
       get :new, company_id: job.company_id
       expect(assigns[:job]).to be_instance_of(Job)
     end
