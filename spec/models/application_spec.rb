@@ -8,4 +8,8 @@ describe Application do
   context "#job" do
     it { should belong_to(:job) }
   end
+
+  context "#job_id" do
+    it { should validate_presence_of(:job_id) }
+  end
 end
