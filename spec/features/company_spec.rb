@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "Company" do
   context "creation" do
-    let(:company)  { Company.new(Fabricate.attributes_for(:company)) }
+    let(:company)  { build_with_attributes(Company) }
 
     background do
       sign_in(company.user)

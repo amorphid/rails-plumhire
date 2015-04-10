@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Job" do
-  let(:job) { Job.new(Fabricate.attributes_for(:job)) }
+  let(:job) { build_with_attributes(Job) }
 
   context "creation" do
     background do

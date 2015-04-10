@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Application" do
-  let(:application) { Application.new(Fabricate.attributes_for(:application)) }
+  let(:application) { build_with_attributes(Application) }
 
   context "creation" do
     background do
