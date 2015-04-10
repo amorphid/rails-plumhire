@@ -1,6 +1,7 @@
 /.bundle
 
 /config/application.yml
+/config/database.yml
 
 /log/*
 !/log/.keep
