@@ -1,0 +1,14 @@
+<%= form_for [@job.company, @job] do |f| %>
+  <%= f.hidden_field :company_id, value: @job.company_id %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.submit "Submit" %>
+  </p>
+<% end %>
