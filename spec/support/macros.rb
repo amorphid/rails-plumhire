@@ -3,17 +3,21 @@ def build_with_attributes(klass)
   klass.new(Fabricate.attributes_for(camelized_symbol))
 end
 
-def clear_current_user
+def delete_session_user_id
   session[:user_id] = nil
 end
 
-def set_current_user(user)
-  session[:user_id] = user.id
+def current_user
+  @user ||= Fabricate(:user)
 end
 
-def sign_in(user)
+def set_session_user_id
+  session[:user_id] = current_user.id
+end
+
+def sign_in
   visit sign_in_path
-  fill_in :email,    with: user.email
-  fill_in :password, with: "password"
+  fill_in :email,    with: current_user.email
+  fill_in :password, with: current_user.password
   click_button "Submit"
 end

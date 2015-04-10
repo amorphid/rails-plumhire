@@ -5,7 +5,7 @@ feature "Company" do
     let(:company)  { build_with_attributes(Company) }
 
     background do
-      sign_in(company.user)
+      sign_in
       click_link("New Company")
     end
 

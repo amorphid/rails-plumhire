@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe StaticPagesController do
-  let(:user) { User.new(Fabricate.attributes_for(:user)) }
+  let(:user) { build_with_attributes(User) }
 
   context "#email_sent" do
     before { user.save }

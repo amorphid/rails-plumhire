@@ -1,9 +1,9 @@
 require "rails_helper"
 
 describe CompaniesController do
-  let(:company) { Company.new(Fabricate.attributes_for(:company)) }
+  let(:company) { build_with_attributes(Company) }
 
-  before { set_current_user(company.user) }
+  before { set_session_user_id }
 
   context "#create" do
     it "creates a company w/ valid input" do

@@ -3,7 +3,7 @@ require "rails_helper"
 describe ApplicationsController do
   let(:application) { build_with_attributes(Application) }
 
-  before { set_current_user(application.job.company.user) }
+  before { set_session_user_id }
 
   context "new" do
     it "assigns @application" do

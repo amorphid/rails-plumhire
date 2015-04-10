@@ -5,7 +5,7 @@ feature "Application" do
 
   context "creation" do
     background do
-      sign_in(application.job.company.user)
+      sign_in
       visit company_job_path(application.job.company, application.job)
       click_link("New Application")
     end

@@ -1,9 +1,9 @@
 require "rails_helper"
 
 describe JobsController do
-  let(:job) { Job.new(Fabricate.attributes_for(:job)) }
+  let(:job) { build_with_attributes(Job) }
 
-  before { set_current_user(job.company.user) }
+  before { set_session_user_id }
 
   context "#create" do
     it "creates a Job" do

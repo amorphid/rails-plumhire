@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe SignInsController do
-  let(:user) { Fabricate(:user) }
+  let(:user) { current_user }
 
   context "#create" do
     before do
