@@ -58,7 +58,8 @@ describe JobsController do
     before { job.save }
 
     it "updates a job" do
-      new_title = job.title + ", the other one"
+      new_title = job.title + ", new & improved"
+      job.title = new_title
       put :update, company_id: job.company.id, id: job.id, job: job.attributes
       expect(Job.find(job.id).title).to eq(new_title)
     end
