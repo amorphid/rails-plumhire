@@ -1,6 +1,7 @@
 <h1>New Application</h1>
 
 <%= form_for [@application.job, @application] do |f| %>
+  <%= f.hidden_field :job_id, value: @application.job_id %>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>
