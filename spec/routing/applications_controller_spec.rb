@@ -8,4 +8,12 @@ describe ApplicationsController do
       action:     "new"
     )
   end
+
+  it do
+    expect(post: "/jobs/:job_id/applications/").to route_to(
+      controller: "applications",
+      job_id:     ":job_id",
+      action:     "create"
+    )
+  end
 end
