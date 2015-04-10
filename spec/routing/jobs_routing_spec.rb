@@ -34,4 +34,13 @@ describe JobsController do
       action:     "create"
     )
   end
+
+  it do
+    expect(put: "/companies/:company_id/jobs/:id").to route_to(
+      controller: "jobs",
+      company_id: ":company_id",
+      id:         ":id",
+      action:     "update"
+    )
+  end
 end
