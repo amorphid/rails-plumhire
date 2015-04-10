@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/sign_up", to: "static_pages#sign_up"
 
   resources :companies, only: [:create, :new, :show] do
-    resources :jobs, only: [:create, :new, :show]
+    resources :jobs, only: [:create, :edit, :new, :show]
   end
 
   resources :jobs, only: [] do
