@@ -20,7 +20,7 @@ describe JobsController do
   context "#edit" do
     before { job.save }
 
-    it "assigns @company" do
+    it "assigns @job" do
       get :edit, company_id: job.company_id, id: job.id
       expect(assigns[:job]).to eq(job)
     end
@@ -44,7 +44,7 @@ describe JobsController do
   context "#show" do
     before { job.save }
 
-    it "assigns @show" do
+    it "assigns @job" do
       get :show, company_id: job.company_id, id: job.id
       expect(assigns[:job]).to eq(job)
     end

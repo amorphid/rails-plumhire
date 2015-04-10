@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :jobs, only: [] do
-    resources :applications, only: [:create, :new, :show]
+    resources :applications, only: [:create, :new, :show, :update]
   end
 
   resources :sign_ins, only: :create
