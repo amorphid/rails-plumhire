@@ -6,6 +6,10 @@ class JobsController < ApplicationController
     redirect_to company_job_path(job.company_id, job)
   end
 
+  def edit
+    @job = Job.find(params[:id])
+  end
+
   def new
     @job = Job.new(company_id: params[:company_id])
   end
