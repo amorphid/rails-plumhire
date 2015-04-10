@@ -21,7 +21,7 @@ describe ApplicationsController do
     end
   end
 
-  context "new" do
+  context "#new" do
     it "assigns @application" do
       get :new, job_id: application.job_id
       expect(assigns[:application]).to be_instance_of(Application)
@@ -29,6 +29,19 @@ describe ApplicationsController do
 
     it_behaves_like "require_sign_in" do
       let(:action) { get :new, job_id: application.job_id }
+    end
+  end
+
+  context "show" do
+    before { application.save }
+
+    it "assigns @application" do
+      get :show, job_id: application.job_id
+      expect(assigns[:application]).to be_instance_of(Application)
+    end
+
+    it_behaves_like "require_sign_in" do
+      let(:action) { get :show, job_id: application.job_id, id: application.id }
     end
   end
 end
