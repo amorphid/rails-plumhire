@@ -53,4 +53,18 @@ describe JobsController do
       let(:action) { get :show, company_id: job.company.id, id: job.id }
     end
   end
+
+  context "#update" do
+    before { job.save }
+
+    it "updates a job" do
+      new_title = job.title + ", the other one"
+      put :update, company_id: job.company.id, id: job.id, job: job.attributes
+      expect(Job.find(job.id).title).to eq(new_title)
+    end
+
+    it_behaves_like "require_sign_in" do
+      let(:action) { put :update, company_id: job.company.id, id: job.id }
+    end
+  end
 end
