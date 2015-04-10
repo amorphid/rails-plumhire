@@ -11,6 +11,14 @@ Built & Tested With...
 - PostgreSQL v9.4.1
 - RSpec Rails v3.2.1
 
+Getting started
+===============
+
+- Install dependencies => `bundle install`
+- Set environment variables in `config/application.yml`
+- Set up the database => `bundle exec rake db:setup`
+- Verify all tests pass => `bundle exec rspec`
+
 License
 =======
 
