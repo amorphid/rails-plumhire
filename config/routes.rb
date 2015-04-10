@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :jobs, only: [:create, :new, :show]
   end
 
+  resources :jobs, only: [] do
+    resources :applications, only: :new
+  end
+
   resources :sign_ins, only: :create
   resources :sign_ups, only: :create
 end
