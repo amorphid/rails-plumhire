@@ -8,7 +8,20 @@ def delete_session_user_id
 end
 
 def current_user
-  @user ||= Fabricate(:user)
+  email    = Faker::Internet.email
+  password = Faker::Internet.password
+
+  @user ||= if User.exists? email: email
+    get_current_user(email, password)
+  else
+    Fabricate(:user, email: email, password: password)
+  end
+end
+
+def get_current_user(email, password)
+  user = User.find_by(email: email)
+  user.password = password
+  user
 end
 
 def set_session_user_id

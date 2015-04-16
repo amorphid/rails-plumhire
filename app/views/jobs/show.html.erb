@@ -13,9 +13,11 @@
   )%>
 </p>
 
-<p>
-  <%= link_to(
-    "Edit Job",
-    edit_company_job_path(@job.company_id, @job)
-  )%>
-</p>
+<% if can? :edit, @job %>
+  <p>
+    <%= link_to(
+      "Edit Job",
+      edit_company_job_path(@job.company_id, @job)
+    )%>
+  </p>
+<% end %>
