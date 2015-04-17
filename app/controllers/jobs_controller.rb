@@ -2,7 +2,9 @@ class JobsController < ApplicationController
     before_filter :authenticate_user!
 
   def create
-    job = Job.create(job_params)
+    job = Job.new(job_params)
+    job.user = current_user
+    job.save
     redirect_to company_job_path(job.company_id, job)
   end
 

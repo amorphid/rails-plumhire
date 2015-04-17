@@ -51,7 +51,7 @@ describe JobsController do
 
     it_behaves_like "require_authorization" do
       let(:action) do
-        job.user << Fabricate(:user)
+        job.user = Fabricate(:user)
         get :show, company_id: job.company.id, id: job.id
       end
     end
