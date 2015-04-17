@@ -10,6 +10,10 @@ describe User do
     it { should validate_uniqueness_of(:email) }
   end
 
+  context "#jobs" do
+    it { should have_many(:jobs) }
+  end
+
   context "#password_digest" do
     it { should validate_presence_of(:password_digest) }
   end

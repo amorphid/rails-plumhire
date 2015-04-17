@@ -1,5 +1,6 @@
 Fabricator(:job) do
-  company { Fabricate(:company) }
+  company
   description { Faker::Lorem.paragraphs }
-  title { Faker::Lorem.sentence }
+  title       { Faker::Lorem.sentence }
+  user        { current_user }
 end
