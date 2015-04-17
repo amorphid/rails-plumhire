@@ -1,5 +1,5 @@
 class ApplicationsController < ApplicationController
-  before_filter :authorize_user!
+  before_filter :authenticate_user!
 
   def create
     application = Application.create(application_params)

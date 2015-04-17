@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_filter :authorize_user!
+  before_filter :authenticate_user!
 
   def create
     company = Company.new(company_params)
