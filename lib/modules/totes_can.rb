@@ -1,7 +1,5 @@
 module TotesCan
   def can?(action, object)
-    rules = {}
-
     if @user && (User.exists? @user.id)
       rules[:edit] = { object.class => true}
     else
@@ -9,5 +7,9 @@ module TotesCan
     end
 
     rules[action][object.class]
+  end
+
+  def rules
+    @rules ||= {}
   end
 end
