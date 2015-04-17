@@ -14,5 +14,8 @@ Bundler.require(*Rails.groups)
 module RailsPlumhire
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
+
+    # load files in ./lib
+    config.autoload_paths += %W(#{config.root}/lib/modules)
   end
 end
