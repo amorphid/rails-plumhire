@@ -49,6 +49,13 @@ describe JobsController do
       expect(assigns[:job]).to eq(job)
     end
 
+    it_behaves_like "require_authorization" do
+      let(:action) do
+        job.user << Fabricate(:user)
+        get :show, company_id: job.company.id, id: job.id
+      end
+    end
+
     it_behaves_like "require_sign_in" do
       let(:action) { get :show, company_id: job.company.id, id: job.id }
     end

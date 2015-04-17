@@ -8,8 +8,8 @@ def delete_session_user_id
 end
 
 def current_user
-  email    = Faker::Internet.email
-  password = Faker::Internet.password
+  email    = "usie@mc.user"
+  password = "passwerd"
 
   @user ||= if User.exists? email: email
     get_current_user(email, password)
