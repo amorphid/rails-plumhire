@@ -1,19 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  def authenticate_user!
-    redirect_to sign_in_path if current_user.nil?
-  end
-
-  def authorize!(action, object)
-    unless current_user == object.user
-      render status: 403
-    end
-  end
-
-  def authenticate_guest!
-    redirect_to home_path unless current_user.nil?
-  end
+  include TotesCan
 
   def current_user
     # if session[:user_id] is nil, no need for database call
