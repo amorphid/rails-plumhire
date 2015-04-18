@@ -11,7 +11,8 @@ def current_user
   email    = "usie@mc.user"
   password = "passwerd"
 
-  @user ||= if User.exists? email: email
+  # using a unique instance variable until better approach found
+  @user_jasdlknsdkjnvsdfjlskdjf ||= if User.exists? email: email
     get_current_user(email, password)
   else
     Fabricate(:user, email: email, password: password)
@@ -23,6 +24,34 @@ def get_current_user(email, password)
   user.password = password
   user
 end
+
+def enable  (object)
+  klass = Class.new do
+    attr_reader :method_name,
+                :object,
+                :value
+
+    def initialize(object)
+      @object = object
+    end
+
+    def and_return(value)
+      object.instance_variable_set("@stubbed_value", value)
+      mahjewel = Module.new
+      mahjewel.send(:define_method, method_name.to_s) { |*_| @stubbed_value }
+      object.extend(mahjewel)
+    end
+
+    def to_receive(method_name)
+      @method_name = method_name
+      self
+    end
+  end
+
+  klass.new(object)
+end
+
+
 
 def set_session_user_id
   session[:user_id] = current_user.id
